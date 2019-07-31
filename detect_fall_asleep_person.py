@@ -140,14 +140,14 @@ while True:
                 cv2.putText(frame, "Warning! Seems he is trying to sleep", (10, 30),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
                 print("Warning! Seems he is trying to sleep -> ", COUNTER)
-                os.system('say "Voce esta dormindo"')
+                # os.system('say "Voce esta dormindo"')
 
             #if COUNTER > 100:
-            if COUNTER > 35:
+            if COUNTER > 100:
                 cv2.putText(frame, "ALARM!!! ALARM!!! HE\'S SLEEPING", (10, 30),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2)
                 print("ALARM!!! ALARM!!! HE\'S SLEEPING")
-                os.system('say "Te vejo no além"')
+                # os.system('say "Te vejo no além"')
         else:
             # reset the eye frame counter
             COUNTER = 0
@@ -156,7 +156,7 @@ while True:
             cv2.circle(frame, (int(x / ratio), int(y / ratio)), 2, (255, 255, 255), -1)
 
     # show the frame
-    cv2.imshow("Frame", frame)
+    cv2.imshow("DoNotDoze", frame)
     key = cv2.waitKey(1) & 0xFF
 
     # if the `q` key was pressed, break from the loop
