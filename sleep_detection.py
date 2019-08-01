@@ -64,8 +64,7 @@ for k, d in enumerate(dets):
     right_ear = compute_EAR(vec[42:48])  # compute eye aspect ratio for right eye
     left_ear = compute_EAR(vec[36:42])  # compute eye aspect ratio for left eye
 
-    if (
-            right_ear + left_ear) / 2 < 0.2:  # if the avarage eye aspect ratio of lef and right eye less than 0.2, the status is sleeping.
+    if (right_ear + left_ear) / 2 < 0.2:  # if the avarage eye aspect ratio of lef and right eye less than 0.2, the status is sleeping.
         status = "sleeping"
 
     print(status)
