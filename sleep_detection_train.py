@@ -17,7 +17,7 @@ def compute_EAR(vec):
     return ear
 
 predictor_path = "shape_predictor_68_face_landmarks.dat"
-image_path = './closed/'
+image_path = './open/'
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(predictor_path)
 
@@ -27,10 +27,10 @@ notSleeping = 0
 for r, d, f in os.walk(image_path):
     for file in f:
         if '.jpg' in file:
-            win = dlib.image_window()
+            #win = dlib.image_window()
             img = io.imread(os.path.join(r, file))
-            win.clear_overlay()
-            win.set_image(img)
+            #win.clear_overlay()
+            #win.set_image(img)
             dets = detector(img, 1)
             vec = np.empty([68, 2], dtype=int)
 
@@ -62,8 +62,8 @@ for r, d, f in os.walk(image_path):
 
                 # print(status)
                 print("Detection {} => Result: {} ".format(os.path.join(r, file), status))
-                win.add_overlay(shape)
-                win.add_overlay(dets)
+                #win.add_overlay(shape)
+                #win.add_overlay(dets)
 
 print("Resultado Final => Sleeping {} - Not Sleeping: {} ".format(sleeping, notSleeping))
 
